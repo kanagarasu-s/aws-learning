@@ -51,10 +51,8 @@ Go to IAM → Roles → Create Role
 Name it something like VMImportExportRole
 
 ## Attach Policy to Role
-
-```
 Create a custom policy and attach it to the role:
-
+```
 
 {
   "Version": "2012-10-17",
@@ -87,10 +85,8 @@ Create a custom policy and attach it to the role:
 
 ```
 ## Give IAM User Permissions
-
-```
 Edit the inline policy for your IAM user and add:
-
+```
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -147,9 +143,7 @@ Example for Hyderabad:
 
 ```
 ## Start the Export Task
-
 Run the command to start export:
-
 ```
 aws ec2 create-instance-export-task \
     --description "My EC2 export $(date '+%b %d %H:%M')" \
@@ -161,15 +155,11 @@ aws ec2 create-instance-export-task \
         "S3Bucket": "newtestvmi",
         "S3Prefix": "vms/"
     }'
-
 ```
 ## Monitor Export Progress
-
 Check the export task status:
-
 ```
 aws ec2 describe-export-tasks \
     --query "ExportTasks[*].{Description:Description,ExportTaskId:ExportTaskId,State:State,S3Bucket:ExportToS3Task.S3Bucket,InstanceId:InstanceExportDetails.InstanceId}" \
     --output table
-
 ```
