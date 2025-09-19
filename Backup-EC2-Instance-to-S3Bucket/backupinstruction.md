@@ -158,4 +158,22 @@ AWS GovCloud (US) – af913ca13efe7a94b88392711f6cfc8aa07c9d1454d4f190a624b12673
 
 All other Regions – c4d8eabf8db69dbe46bfe0e517100c554f01200b104d59cd408e777ba442a322
 ```
-
+## Start an instance export task
+```
+aws ec2 create-instance-export-task \
+    --description "$(date '+%b %d %H:%M') My instance export" \
+    --instance-id i-1234567890abcdef0 \
+    --target-environment vmware \
+    --export-to-s3-task '{
+        "ContainerFormat": "ova",
+        "DiskImageFormat": "VMDK",
+        "S3Bucket": "amzn-s3-demo-export-bucket",
+        "S3Prefix": "vms/"
+    }'
+```
+## Monitor an instance export task
+```
+aws ec2 describe-export-tasks \
+    --query "ExportTasks[*].{Description:Description,ExportTaskId:ExportTaskId,State:State,S3Bucket:ExportToS3Task.S3Bucket,InstanceId:InstanceExportDetails.InstanceId}" \
+    --output table
+```
