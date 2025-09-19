@@ -4,7 +4,7 @@ This guide explains how to export an EC2 instance and store it as a **VMDK** fil
 
 ---
 
-## 1. Stop the EC2 Instance
+## Stop the EC2 Instance
 Before exporting, stop the instance. Replace the instance ID with yours.
 
 ```
@@ -138,7 +138,7 @@ Add the Region-specific canonical account ID for your region
 Example for Hyderabad:
 
 ```
-
+```
 77ab5ec9eac9ade710b7defed37fe0640f93c5eb76ea65a64da49930965f18ca
 
 ```
