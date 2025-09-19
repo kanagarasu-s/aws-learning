@@ -107,6 +107,11 @@ create permission linein policy
 ## create new bucket via aws console
 s3 -> createnew bucket
 ## check Bucket ACL  Permission.
+## For each Grantee, provide the following permissions:
+READ_ACP (In the Amazon S3 console, Bucket ACL should have the Read permission)
+
+WRITE (In the Amazon S3 console, Objects should have the Write permission)
+
 bucket ACL ower permission read, write for object and bucket acl
 ## add External account Canonical ID at access controll list(ACL) 
 ## For Grantee, provide the appropriate Region-specific canonical account ID
