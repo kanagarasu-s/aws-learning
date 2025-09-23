@@ -219,3 +219,8 @@ aws ec2 describe-export-image-tasks \
   --output table
 
 ```
+## cancel an export image task
+```
+aws ec2 cancel-export-task \
+    --export-task-id export-ami-1234567890abcdef0
+```
