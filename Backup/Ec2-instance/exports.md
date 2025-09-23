@@ -176,3 +176,8 @@ aws ec2 describe-export-tasks \
     --query "ExportTasks[*].{Description:Description,ExportTaskId:ExportTaskId,State:State,S3Bucket:ExportToS3Task.S3Bucket,InstanceId:InstanceExportDetails.InstanceId}" \
     --output table
 ```
+## cancel an instance export task
+```
+aws ec2 cancel-export-task \
+    --export-task-id export-i-1234567890abcdef0
+```
