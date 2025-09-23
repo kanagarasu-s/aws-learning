@@ -73,7 +73,10 @@ aws ec2 import-image \
 ## 4. Monitor Import Task
 
 ```bash
-aws ec2 describe-import-image-tasks --import-task-ids import-ami-xxxx
+aws ec2 describe-import-image-tasks \
+  --query "ImportImageTasks[*].{Description:Description, Progress:Progress, Status:Status, ImportTaskId:ImportTaskId, StatusMessage:StatusMessage}" \
+  --output table | \
+    sed 's/\(.\{120\}\).*/\1|/'
 ```
 
 Status can be:
